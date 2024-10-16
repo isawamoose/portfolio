@@ -1,4 +1,4 @@
-import { MutableRefObject } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import './Section.scss';
 import { CardProps } from './Card';
 import Carousel from './Carousel';
@@ -14,10 +14,38 @@ interface Props {
 }
 
 export default function Section(props: Props) {
+  const [isVisible, setIsVisible] = useState(false);
+  const h2Ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    if (h2Ref.current) {
+      observer.observe(h2Ref.current);
+    }
+
+    return () => {
+      if (h2Ref.current) observer.unobserve(h2Ref.current);
+    };
+  }, []);
+
   return (
     <div className={'section' + (props.cards ? ' has-carousel' : '')}>
       <img className="bg-image" src={props.image} alt="Background" />
-      <h2>{props.headline}</h2>
+      <h2 ref={h2Ref} className={isVisible ? 'h2-visible' : 'h2-hidden'}>
+        {props.headline}
+      </h2>
       {props.subImage && <img className="sub-image" src={props.subImage} alt="Side" />}
       {props.cards && <Carousel cards={props.cards} />}
       <div className="navigation">

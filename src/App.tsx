@@ -9,7 +9,7 @@ function App() {
       title: 'AutoGrader',
       image: '/grader.png',
       link: 'https://github.com/devops329/autograder',
-      description: 'Automated grader for BYU CS329',
+      description: "React + TS grader for BYU's CS 329 course",
     },
     {
       title: 'FloorMaps',

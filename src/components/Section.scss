@@ -25,11 +25,7 @@
   }
 
   h2 {
-    color: white;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-  }
-
-  h2 {
     margin: 4rem 0 2rem; // Adjusted to move the heading higher
     position: relative;
     z-index: 1;
@@ -37,6 +33,17 @@
     font-weight: bold;
     color: #fff;
     text-align: center;
+
+    &.h2-hidden {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    &.h2-visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
 
     @media (min-width: 768px) {
       font-size: 4rem;
