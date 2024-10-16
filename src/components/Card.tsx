@@ -15,7 +15,7 @@ export default function Card(props: CardProps) {
         <a className="link" href={props.link} target="_new">
           <h3>
             {props.title}
-            <img src="/src/assets/link.svg"></img>
+            <img src="/link.svg"></img>
           </h3>
         </a>
         <p>{props.description}</p>

@@ -7,19 +7,19 @@ function App() {
   const appCards: CardProps[] = [
     {
       title: 'AutoGrader',
-      image: '/src/assets/grader.png',
+      image: '/grader.png',
       link: 'https://github.com/devops329/autograder',
       description: 'Automated grader for BYU CS329',
     },
     {
       title: 'FloorMaps',
-      image: '/src/assets/floormaps.png',
+      image: '/floormaps.png',
       link: 'https://lib.byu.edu/floormaps/',
       description: 'Angular front end for BYU Library floor maps',
     },
     {
       title: 'Alphabetic Browse',
-      image: '/src/assets/alphabrowse.png',
+      image: '/alphabrowse.png',
       link: 'https://lib.byu.edu/browse/',
       description: 'Angular front end for BYU Library Alphabetic Browse',
     },
@@ -27,13 +27,13 @@ function App() {
   const colabCards: CardProps[] = [
     {
       title: 'CS 329: QA and DevOps',
-      image: '/src/assets/cs329.png',
+      image: '/cs329.png',
       link: 'https://github.com/devops329/devops/blob/main/instruction/modules.md',
       description: "Coauthored a class for BYU's CS program",
     },
     {
       title: 'BYU Library Search',
-      image: '/src/assets/search.png',
+      image: '/search.png',
       link: 'https://lib.byu.edu/search/',
       description: 'Migrated key features to Angular',
     },
@@ -47,28 +47,14 @@ function App() {
   return (
     <div className="container">
       <div ref={section1}>
-        <Section
-          image="/src/assets/timp.jpg"
-          headline="Hi, I'm Stephen!"
-          scrollTo={scrollTo}
-          goToSectionRef={section2}
-          last={false}
-          subImage="/src/assets/stephen.jpg"
-        />
+        <Section image="/timp.jpg" headline="Hi, I'm Stephen!" scrollTo={scrollTo} goToSectionRef={section2} last={false} subImage="/stephen.jpg" />
       </div>
       <div ref={section2}>
-        <Section
-          image="/src/assets/road.jpg"
-          headline="I've built some apps..."
-          scrollTo={scrollTo}
-          goToSectionRef={section3}
-          last={false}
-          cards={appCards}
-        />
+        <Section image="/road.jpg" headline="I've built some apps..." scrollTo={scrollTo} goToSectionRef={section3} last={false} cards={appCards} />
       </div>
       <div ref={section3}>
         <Section
-          image="/src/assets/byu.jpg"
+          image="/byu.jpg"
           headline="And helped on some projects."
           scrollTo={scrollTo}
           goToSectionRef={section1}
