@@ -1,0 +1,38 @@
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  @media screen and (max-width: 768px) {
+    width: 70vw;
+  }
+
+  .card-container {
+    height: 40vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .card-wrapper {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carousel-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    padding: 1rem;
+    z-index: 2;
+
+    &:hover {
+      color: #ff0;
+    }
+  }
+}
