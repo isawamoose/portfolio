@@ -5,34 +5,70 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   margin: 2rem;
   color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &:hover {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     width: 20.5rem;
     transition: 0.5s;
   }
-  a {
-    margin: 1rem;
-    &:hover {
-      cursor: pointer;
-    }
-    h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-align: center;
-      img {
-        vertical-align: middle;
-        width: 1.2rem;
-        height: 1.2rem;
-        margin-left: 0.2rem;
-        margin-bottom: 0.2rem;
+  .card-content {
+    width: 20rem;
+    a {
+      margin: 1rem;
+      &:hover {
+        cursor: pointer;
+      }
+      h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        img {
+          vertical-align: middle;
+          width: 1.2rem;
+          height: 1.2rem;
+          margin-left: 0.2rem;
+          margin-bottom: 0.2rem;
+        }
       }
     }
-  }
-  p {
-    margin: 0 1rem 1rem 1rem;
-    font-size: 1.2rem;
-    text-align: center;
+    p {
+      margin: 0 1rem 1rem 1rem;
+      font-size: 1.2rem;
+      text-align: center;
+      max-height: 4.5rem;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    p.expanded {
+      max-height: none; /* Allow the paragraph to fully expand when clicked */
+      -webkit-line-clamp: unset;
+    }
+
+    .read-more {
+      font-size: 1rem;
+      text-align: center;
+      cursor: pointer;
+      margin: 0.5rem;
+      align-items: center;
+      transition: color 0.3s ease;
+      &:hover {
+        color: #0056b3;
+      }
+      svg {
+        margin-left: 0.5rem;
+        transition: transform 0.3s ease;
+      }
+      &.expanded svg {
+        transform: rotate(180deg); /* Arrow points up when expanded */
+      }
+    }
   }
 
   img {
