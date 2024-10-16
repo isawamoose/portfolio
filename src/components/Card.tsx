@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './Card.scss';
 
 export interface CardProps {
@@ -10,10 +10,32 @@ export interface CardProps {
 
 export default function Card(props: CardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const pRef = useRef(null);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          setIsExpanded(false);
+        }
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    if (pRef.current) {
+      observer.observe(pRef.current);
+    }
+
+    return () => {
+      if (pRef.current) observer.unobserve(pRef.current);
+    };
+  }, []);
 
   return (
     <div className="card">
@@ -25,7 +47,7 @@ export default function Card(props: CardProps) {
             <img src="/link.svg"></img>
           </h3>
         </a>
-        <p className={isExpanded ? 'expanded' : ''} onClick={toggleExpand} style={{ cursor: 'pointer' }}>
+        <p ref={pRef} className={isExpanded ? 'expanded' : ''} onClick={toggleExpand} style={{ cursor: 'pointer' }}>
           {props.description}
         </p>
         <div className={`read-more ${isExpanded ? 'expanded' : ''}`} onClick={toggleExpand}>
