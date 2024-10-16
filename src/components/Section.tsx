@@ -9,7 +9,6 @@ interface Props {
   last: boolean;
   scrollTo: (section: MutableRefObject<HTMLDivElement | null>) => void;
   goToSectionRef: MutableRefObject<HTMLDivElement | null>;
-  scrollToDescription: string;
   subImage?: string;
   cards?: CardProps[];
 }
@@ -22,7 +21,6 @@ export default function Section(props: Props) {
       {props.subImage && <img className="sub-image" src={props.subImage} alt="Side" />}
       {props.cards && <Carousel cards={props.cards} />}
       <div className="navigation">
-        <p>{props.scrollToDescription}</p>
         <button
           className={'arrow' + (props.last ? ' up' : '')}
           onClick={() => {

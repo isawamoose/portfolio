@@ -54,7 +54,6 @@ function App() {
           goToSectionRef={section2}
           last={false}
           subImage="/src/assets/stephen.jpg"
-          scrollToDescription="Apps I've built"
         />
       </div>
       <div ref={section2}>
@@ -65,7 +64,6 @@ function App() {
           goToSectionRef={section3}
           last={false}
           cards={appCards}
-          scrollToDescription="Projects I've helped on"
         />
       </div>
       <div ref={section3}>
@@ -76,7 +74,6 @@ function App() {
           goToSectionRef={section1}
           last={true}
           cards={colabCards}
-          scrollToDescription="Back to top"
         />
       </div>
     </div>
