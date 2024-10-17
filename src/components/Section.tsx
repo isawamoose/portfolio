@@ -18,13 +18,12 @@ interface Props {
 
 export default function Section(props: Props) {
   const [isVisible, setIsVisible] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
   const h2Ref = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && imagesLoaded) {
+        if (entry.isIntersecting) {
           setIsVisible(true);
         } else {
           setIsVisible(false);
@@ -42,19 +41,15 @@ export default function Section(props: Props) {
     return () => {
       if (h2Ref.current) observer.unobserve(h2Ref.current);
     };
-  }, [imagesLoaded]);
-
-  const handleImageLoad = () => {
-    setImagesLoaded(true);
-  };
+  }, []);
 
   return (
     <div className={'section' + (props.cards ? ' has-carousel' : '')}>
-      <img className="bg-image" src={props.image} alt="Background" onLoad={handleImageLoad} />
+      <img className="bg-image" src={props.image} alt="Background" />
       <h2 ref={h2Ref} className={isVisible ? 'h2-visible' : 'h2-hidden'}>
         {props.headline}
       </h2>
-      {props.subImage && <img className="sub-image" src={props.subImage} alt="Side" onLoad={handleImageLoad} />}
+      {props.subImage && <img className="sub-image" src={props.subImage} alt="Side" />}
       {props.subText && (
         <div className="sub-text">
           <ul>
