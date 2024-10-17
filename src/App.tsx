@@ -80,7 +80,6 @@ function App() {
             "I'm a senior at BYU studying Computer Science.",
             "I've been a TA for CS 260 (Web Programming) and CS 329 (QA and DevOps).",
             "I'm originally from Cambridgeshire, England.",
-            "I play guitar in BYU's Jazz Lab Band.",
             'I enjoy reading, knitting hats, and carving spoons.',
           ]}
         />
