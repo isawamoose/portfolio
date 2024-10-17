@@ -1,0 +1,29 @@
+.contacts {
+  font-size: 1.5rem;
+  position: relative;
+  max-width: 60%;
+  z-index: 1;
+  color: #fff;
+  text-align: left;
+  border-radius: 0.7rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+
+  @media screen and (max-width: 768px) {
+    max-width: 80%;
+  }
+
+  .contact {
+    padding: 1rem;
+    img {
+      width: 2rem;
+      height: 2rem;
+      margin-right: 1rem;
+      vertical-align: middle;
+      margin-bottom: 0.7rem;
+    }
+    a {
+      font-size: 2rem;
+    }
+  }
+}

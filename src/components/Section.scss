@@ -16,6 +16,35 @@
     border-radius: 0.7rem;
   }
 
+  .sub-text {
+    font-size: 1.5rem;
+    max-width: 60%;
+    z-index: 1;
+    color: #fff;
+    text-align: left;
+    border-radius: 0.7rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding-right: 2rem;
+
+    @media screen and (max-width: 768px) {
+      max-width: 80%;
+    }
+  }
+
+  .links {
+    ul {
+      list-style: none;
+      img {
+        width: 2rem;
+        height: 2rem;
+        margin-right: 1rem;
+      }
+      a {
+        font-size: 2rem;
+      }
+    }
+  }
+
   .bg-image {
     position: absolute;
     object-fit: cover;
@@ -26,7 +55,7 @@
 
   h2 {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-    margin: 4rem 0 0;
+    margin: 4rem;
     position: absolute;
     top: 3rem;
     z-index: 1;

@@ -45,6 +45,9 @@ function App() {
   const section1 = useRef<HTMLDivElement | null>(null);
   const section2 = useRef<HTMLDivElement | null>(null);
   const section3 = useRef<HTMLDivElement | null>(null);
+  const section4 = useRef<HTMLDivElement | null>(null);
+  const section5 = useRef<HTMLDivElement | null>(null);
+
   function scrollTo(section: MutableRefObject<HTMLDivElement | null>) {
     section.current?.scrollIntoView({ behavior: 'smooth' });
   }
@@ -61,10 +64,29 @@ function App() {
           image="/byu.jpg"
           headline="And was a key contributor on some projects."
           scrollTo={scrollTo}
-          goToSectionRef={section1}
-          last={true}
+          goToSectionRef={section4}
+          last={false}
           cards={colabCards}
         />
+      </div>
+      <div ref={section4}>
+        <Section
+          image="/mountain.jpg"
+          headline="I'm an interesting guy..."
+          scrollTo={scrollTo}
+          goToSectionRef={section5}
+          last={false}
+          subText={[
+            "I'm a senior at BYU studying Computer Science.",
+            "I've been a TA for CS 260 (Web Programming) and CS 329 (QA and DevOps).",
+            "I'm originally from Cambridgeshire, England.",
+            "I play guitar in BYU's Jazz Lab Band.",
+            'I enjoy knitting hats and carving spoons.',
+          ]}
+        />
+      </div>
+      <div ref={section4}>
+        <Section image="/sunset.jpg" headline="So go ahead and reach out!" scrollTo={scrollTo} goToSectionRef={section1} last={true} contact={true} />
       </div>
     </div>
   );
