@@ -81,7 +81,7 @@ function App() {
             "I've been a TA for CS 260 (Web Programming) and CS 329 (QA and DevOps).",
             "I'm originally from Cambridgeshire, England.",
             "I play guitar in BYU's Jazz Lab Band.",
-            'I enjoy knitting hats and carving spoons.',
+            'I enjoy reading, knitting hats, and carving spoons.',
           ]}
         />
       </div>
