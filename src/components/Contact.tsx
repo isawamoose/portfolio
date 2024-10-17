@@ -23,6 +23,11 @@ export default function Contact() {
       link: 'tel:8015001625',
       text: '(801) 500-1625',
     },
+    {
+      image: '/github.svg',
+      link: 'https://github.com/isawamoose',
+      text: 'isawamoose',
+    },
   ];
   return (
     <div className="contacts">

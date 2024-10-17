@@ -1,7 +1,7 @@
 .contacts {
   font-size: 1.5rem;
-  position: relative;
-  max-width: 60%;
+  position: absolute;
+  bottom: 22%;
   z-index: 1;
   color: #fff;
   text-align: left;
@@ -14,7 +14,7 @@
   }
 
   .contact {
-    padding: 1rem;
+    padding: 1rem 0;
     img {
       width: 2rem;
       height: 2rem;
