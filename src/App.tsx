@@ -85,7 +85,7 @@ function App() {
           ]}
         />
       </div>
-      <div ref={section4}>
+      <div ref={section5}>
         <Section image="/sunset.jpg" headline="So go ahead and reach out!" scrollTo={scrollTo} goToSectionRef={section1} last={true} contact={true} />
       </div>
     </div>
