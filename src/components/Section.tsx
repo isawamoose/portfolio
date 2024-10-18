@@ -3,6 +3,7 @@ import './Section.scss';
 import { CardProps } from './Card';
 import Carousel from './Carousel';
 import Contact from './Contact';
+import Bowser from 'bowser';
 
 interface Props {
   headline: string;
@@ -19,18 +20,33 @@ interface Props {
 export default function Section(props: Props) {
   const [isVisible, setIsVisible] = useState(false);
   const h2Ref = useRef(null);
+  const [isSafariBrowser, setIsSafariBrowser] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsSafariBrowser(isSafari());
+    console.log('isSafariBrowser', isSafariBrowser);
+  }, []);
+
+  const isSafari = () => {
+    const browser = Bowser.getParser(window.navigator.userAgent);
+    return browser.getBrowserName() === 'Safari';
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && imagesLoaded) {
           setIsVisible(true);
         } else {
-          setIsVisible(false);
+          if (!isSafariBrowser) {
+            console.log('hiding');
+            setIsVisible(false);
+          }
         }
       },
       {
-        threshold: 0.5,
+        threshold: 0.9,
       }
     );
 
@@ -41,15 +57,19 @@ export default function Section(props: Props) {
     return () => {
       if (h2Ref.current) observer.unobserve(h2Ref.current);
     };
-  }, []);
+  }, [imagesLoaded]);
+
+  const handleImageLoad = () => {
+    setImagesLoaded(true);
+  };
 
   return (
     <div className={'section' + (props.cards ? ' has-carousel' : '')}>
-      <img className="bg-image" src={props.image} alt="Background" />
+      <img className="bg-image" src={props.image} alt="Background" onLoad={handleImageLoad} />
       <h2 ref={h2Ref} className={isVisible ? 'h2-visible' : 'h2-hidden'}>
         {props.headline}
       </h2>
-      {props.subImage && <img className="sub-image" src={props.subImage} alt="Side" />}
+      {props.subImage && <img className="sub-image" src={props.subImage} alt="Side" onLoad={handleImageLoad} />}
       {props.subText && (
         <div className="sub-text">
           <ul>
