@@ -10,7 +10,7 @@ function App() {
       image: '/grader.png',
       link: 'https://github.com/devops329/autograder',
       description:
-        "I built an open-source automated grader for BYU's CS329 in React and Node.js course. Serving over one hundred students each semester, it uses CAS with SAML for authentication, integrates with Github and Canvas, and has observability through Grafana.",
+        "I built an open-source automated grader for BYU's CS329 course in React and Node.js. Serving over one hundred students each semester, it uses CAS with SAML for authentication, integrates with Github and Canvas, and has observability through Grafana.",
     },
     {
       title: 'FloorMaps',
