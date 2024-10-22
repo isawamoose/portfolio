@@ -1,6 +1,7 @@
 .container {
   position: relative;
   overflow-y: auto;
+  overflow-x: hidden;
   overscroll-behavior-y: contain;
   scroll-snap-type: y mandatory;
   height: 100vh;
