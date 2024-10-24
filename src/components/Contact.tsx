@@ -14,16 +14,6 @@ export default function Contact() {
       text: 'Stephen Amos',
     },
     {
-      image: '/email.svg',
-      link: 'mailto:amos.stephen.m@gmail.com',
-      text: 'amos.stephen.m@gmail.com',
-    },
-    {
-      image: '/phone.svg',
-      link: 'tel:8015001625',
-      text: '(801) 500-1625',
-    },
-    {
       image: '/github.svg',
       link: 'https://github.com/isawamoose',
       text: 'isawamoose',
